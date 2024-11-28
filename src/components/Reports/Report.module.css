@@ -1,0 +1,48 @@
+.report {
+    margin: 15px;
+    padding: 10px 25px 25px 25px;
+    border-radius: 10px;
+    background-color: white;
+    width: 40%;
+    font-size: 30px;
+    text-align: start;
+    color: rgb(17,40,65);
+    transition: all 0.2s ease-out;
+    border: 2px solid rgb(17,40,65);
+}
+
+#date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    color: gray;
+    /* opacity: 0.5; */
+}
+
+.selectedReport {
+    margin: 15px;
+    padding: 10px 25px 25px 25px;
+    border-radius: 10px;
+    background-color: rgb(17,40,65);
+    width: 40%;
+    font-size: 30px;
+    text-align: start;
+    color: gray;
+    transition: all 0.2s ease-out;
+    border: 2px solid gray;
+}
+
+@media (max-width: 719px) {
+    .report {
+        width: 70%;
+        font-size: 25px;
+    }
+    #date {
+        font-size: 20px;
+    }
+    .selectedReport {
+        width: 70%;
+        font-size: 25px;
+    }
+}

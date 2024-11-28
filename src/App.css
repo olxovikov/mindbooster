@@ -1,0 +1,27 @@
+body {
+  background-color: rgb(17,40,65);
+}
+
+h1 {
+ color: white;
+ margin: 30px 30px 100px 30px;
+ font-size: 55px;
+}
+
+h2 {
+  margin-top: 100px;
+  color: white;
+  font-size: 35px; 
+
+}
+
+.App {
+  text-align: center;
+}
+
+@media (max-width: 719px) {
+  h1 {
+    font-size: 45px;
+    margin-bottom: 50px;
+  }
+}

@@ -10,18 +10,27 @@ function App() {
   const [reports, setReports] = useState(JSON.parse(localStorage.getItem('REPORT_DATA')) || [])
 
   function runSetReports(newText) {
-    const newReport = {
-      text: newText,
-      isSelected: false,
-      id: uuidv4(),
-      date: new Date().toLocaleDateString('ru-RU', {
-        year: 'numeric',
-        month: 'numeric',
-        day: 'numeric',
-    })    
+    const currentDate = new Date().toLocaleDateString('ru-RU', {
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+  })
+
+    if (reports.length && reports[0].date === currentDate) {
+      reports[0].text += `\n${newText}`
+      setReports([...reports])
+      localStorage.setItem('REPORT_DATA', JSON.stringify([...reports]))
     }
-    setReports([newReport, ...reports])
-    localStorage.setItem('REPORT_DATA', JSON.stringify([newReport, ...reports]))
+    else {
+      const newReport = {
+        text: newText,
+        isSelected: false,
+        id: uuidv4(),
+        date: currentDate
+      }
+      setReports([newReport, ...reports])
+      localStorage.setItem('REPORT_DATA', JSON.stringify([newReport, ...reports]))
+    }
   }
 
   function deleteSelected() {

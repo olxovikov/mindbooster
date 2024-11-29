@@ -7,7 +7,13 @@ function Report(props) {
                 {props.date}
             </label>
             <label>
-                {props.text}
+                {(props.text).split('\n').map((element, index) => (
+                    <span key={index}>
+                        {element}
+                        <br/>
+                        {/* {index < (props.text).split('\n').length-1 && <br/>} */}
+                    </span>
+                ))}
             </label>
         </div>
     )

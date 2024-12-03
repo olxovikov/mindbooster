@@ -3,26 +3,27 @@ import styles from './ReportForm.module.css'
 
 function ReportForm(props) {
 
-    const [textArea, setTextArea] = useState('')
+    const [textInput, setTextInput] = useState('')
 
-    function runSetTextArea(event) {
-        setTextArea(event.target.value)
+    function runSetTextInput(event) {
+        setTextInput(event.target.value)
     }
 
     function submitForm(event) {
         event.preventDefault()
 
-        if (textArea.trim()) {
-            props.runSetReports(textArea.trim())
+        if (textInput.trim()) {
+            props.runSetReports(textInput.trim())
         }
 
-        setTextArea('')
+        setTextInput('')
+        
     }
 
 
     return(
         <form className={styles.report__form} onSubmit={submitForm}>
-            <input placeholder='Write something...' id={styles.input} value={textArea} onChange={runSetTextArea}></input>
+            <input placeholder='Write something...' id={styles.input} value={textInput} onChange={runSetTextInput}></input>
             <button id={styles.button}type='submit'>Save</button>
         </form>
     )

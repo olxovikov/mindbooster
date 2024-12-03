@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import './App.css';
@@ -8,6 +9,20 @@ import ReportsActions from './components/Reports/ReportsActions';
 
 function App() {
   const [reports, setReports] = useState(JSON.parse(localStorage.getItem('REPORT_DATA')) || [])
+
+  useEffect(()=>{
+    localStorage.setItem('REPORT_DATA', JSON.stringify([...reports]))
+  }, [reports])
+
+  useEffect(()=>{
+  
+    reports.forEach(element => {
+      if ((element.text).trim().length === 0) {
+        setReports(reports.filter((el)=>(el.text).trim().length > 0))
+      }
+    });
+
+  },[reports])
 
   function runSetReports(newText) {
     const currentDate = new Date().toLocaleDateString('ru-RU', {
@@ -76,7 +91,7 @@ function App() {
       {reports.length ? 
         <>
           <ReportsActions isDisabled={!isDisabled()} selectAll={selectAll} deleteSelected={deleteSelected}/>
-          <ReportList selectReport={selectReport} reports={reports}/>
+          <ReportList selectReport={selectReport} reports={reports} setReports={setReports} runSetReports={runSetReports}/>
         </>
       : <h2>List is empty.</h2>}
       {

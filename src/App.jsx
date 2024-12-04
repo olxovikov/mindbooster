@@ -90,7 +90,7 @@ function App() {
       <ReportForm runSetReports={runSetReports}/>
       {reports.length ? 
         <>
-          <ReportsActions isDisabled={!isDisabled()} selectAll={selectAll} deleteSelected={deleteSelected}/>
+          <ReportsActions isDisabled={!isDisabled()} selectAll={selectAll} deleteSelected={deleteSelected} reports={reports}/>
           <ReportList selectReport={selectReport} reports={reports} setReports={setReports} runSetReports={runSetReports}/>
         </>
       : <h2>List is empty.</h2>}

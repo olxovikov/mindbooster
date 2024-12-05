@@ -32,13 +32,13 @@ function App() {
   })
 
     if (reports.length && reports[0].date === currentDate) {
-      reports[0].text += `\n${newText}`
+      reports[0].text += `\n— ${newText}`
       setReports([...reports])
       localStorage.setItem('REPORT_DATA', JSON.stringify([...reports]))
     }
     else {
       const newReport = {
-        text: newText,
+        text: `— ${newText}`,
         isSelected: false,
         id: uuidv4(),
         date: currentDate

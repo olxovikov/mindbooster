@@ -1,4 +1,5 @@
 .report {
+    position: relative;
     margin: 15px;
     padding: 10px 25px 25px 25px;
     border-radius: 10px;
@@ -21,6 +22,7 @@
 }
 
 .selectedReport {
+    position: relative;
     margin: 15px;
     padding: 10px 25px 25px 25px;
     border-radius: 10px;
@@ -47,6 +49,42 @@ textarea {
 textarea:focus {
     border: 0 none initial;
     outline: none;
+}
+
+.report button {
+    position:absolute;
+    top: 5px;
+    right: 0px;
+    background-color: initial;
+    border: none;
+}
+
+.selectedReport button {
+    position:absolute;
+    top: 5px;
+    right: 0px;
+    background-color: initial;
+    border: none;
+}
+
+.report img {
+    height: 25px;
+    filter: invert(11%) sepia(47%) saturate(1375%) hue-rotate(180deg) brightness(94%) contrast(92%);
+    transition: all 0.2s ease-out;
+}
+
+.report img:hover {
+    transform: scale(1.05, 1.05);
+}
+
+.selectedReport img {
+    height: 25px;
+    filter: invert(50%) sepia(2%) saturate(11%) hue-rotate(344deg) brightness(101%) contrast(91%);
+    transition: all 0.2s ease-out;
+}
+
+.selectedReport img:hover {
+    transform: scale(1.05, 1.05);
 }
 
 @media (max-width: 719px) {

@@ -1,15 +1,33 @@
 .report {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin: 15px;
-    padding: 10px 25px 25px 25px;
+    padding: 10px 25px 10px 25px;
     border-radius: 10px;
     background-color: white;
     width: 40%;
     font-size: 30px;
-    text-align: start;
     color: rgb(17,40,65);
     transition: all 0.2s ease-out;
     border: 2px solid rgb(17,40,65);
+}
+
+.selectedReport {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+    padding: 10px 25px 10px 25px;
+    border-radius: 10px;
+    background-color: rgb(17,40,65);
+    width: 40%;
+    font-size: 30px;
+    color: gray;
+    transition: all 0.2s ease-out;
+    border: 2px solid gray;
 }
 
 #date {
@@ -18,25 +36,10 @@
     justify-content: center;
     font-size: 25px;
     color: gray;
-    /* opacity: 0.5; */
-}
-
-.selectedReport {
-    position: relative;
-    margin: 15px;
-    padding: 10px 25px 25px 25px;
-    border-radius: 10px;
-    background-color: rgb(17,40,65);
-    width: 40%;
-    font-size: 30px;
-    text-align: start;
-    color: gray;
-    transition: all 0.2s ease-out;
-    border: 2px solid gray;
 }
 
 textarea {
-    padding-top: 5px;
+    padding: 5px 0 5px 0;
     overflow-y: hidden;
     border: none;
     resize: none;
@@ -44,7 +47,6 @@ textarea {
     font-size: 30px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     width: 100%;
-    text-align: justify;
 }
 
 textarea:focus {
@@ -59,17 +61,11 @@ textarea:disabled {
 }
 
 .report button {
-    position:absolute;
-    bottom: 5px;
-    right: 0px;
     background-color: initial;
     border: none;
 }
 
 .selectedReport button {
-    position:absolute;
-    bottom: 5px;
-    right: 0px;
     background-color: initial;
     border: none;
 }
@@ -89,12 +85,12 @@ textarea:disabled {
         width: 70%;
         font-size: 25px;
     }
-    #date {
-        font-size: 20px;
-    }
     .selectedReport {
         width: 70%;
         font-size: 25px;
+    }
+    #date {
+        font-size: 20px;
     }
     textarea {
         font-size: 25px;

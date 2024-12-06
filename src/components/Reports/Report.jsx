@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import ReactTextareaAutosize from 'react-textarea-autosize'
 import styles from './Report.module.css'
-import edit from '../../img/pen-to-square-solid.svg'
+import edit from '../../img/editpen.svg'
 
 function Report(props) {
     const [textArea, setTextArea] = useState(props.text);

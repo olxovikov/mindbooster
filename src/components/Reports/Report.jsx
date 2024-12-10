@@ -42,7 +42,7 @@ function Report(props) {
             <label id={styles.date}>
                 {props.date}
             </label>
-            <ReactTextareaAutosize ref={textareaRef} disabled={stopEdit} onClick={(event)=>event.stopPropagation()} value={textArea} onChange={(event)=>setTextArea(event.target.value)} style={props.isSelected ? {color: 'grey'} : {color:'rgb(17,40,65)'}}/>
+            <ReactTextareaAutosize onBlur={()=>setStopEdit(true)} ref={textareaRef} disabled={stopEdit} onClick={stopEdit ? null : (event)=>event.stopPropagation()} value={textArea} onChange={(event)=>setTextArea(event.target.value)} style={props.isSelected ? {color: 'grey'} : {color:'rgb(17,40,65)'}}/>
             <button onClick={changeEditMode}><img style={stopEdit ? null : {filter: 'invert(79%) sepia(47%) saturate(5961%) hue-rotate(113deg) brightness(92%) contrast(105%)'}} src={edit} /></button>
         </div>
     )

@@ -1,0 +1,60 @@
+.dailyForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.dailyForm input {
+    text-align: center;
+    font-size: 30px;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+}
+
+.dailyForm input[type="date"] {
+    color: black;
+    background-color: white;
+}
+
+.dailyForm label {
+    color: white;
+    font-size: 35px;
+}
+
+.dailyForm button {
+    margin-top: 15px;
+    font-size: 30px;
+    padding:15px;
+    background-color: beige;
+    border: none;
+    border-radius: 15px;
+    color: rgb(17,40,65);
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+}
+
+.dailyForm button:hover {
+    transform: scale(1.02, 1.02);
+    background-color: rgb(240,240,155);
+}
+
+@media (max-width: 719px) {
+    .dailyForm input {
+        padding-right: 5px;
+        padding-left: 5px;
+        font-size: 25px;
+    }
+    .dailyForm button {
+        font-size: 25px;
+    }
+    .dailyForm label {
+        font-size: 30px;
+    }
+    .dailyForm {
+        gap: 5px;
+    }
+}
+

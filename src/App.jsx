@@ -2,13 +2,16 @@ import { useEffect } from 'react';
 import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import './App.css';
+import DayCounterApp from './components/DayCounter/DayCounterApp';
 import ReportForm from './components/Reports/ReportForm';
 import ReportList from './components/Reports/ReportList'
 import ReportsActions from './components/Reports/ReportsActions';
+import Switch from './components/Switch';
 
 
 function App() {
   const [reports, setReports] = useState(JSON.parse(localStorage.getItem('REPORT_DATA')) || [])
+  const [switcher, setSwitcher] = useState(JSON.parse(localStorage.getItem('SWITCH_DATA')) || false)
 
   useEffect(()=>{
     localStorage.setItem('REPORT_DATA', JSON.stringify([...reports]))
@@ -86,20 +89,31 @@ function App() {
 
   return (
     <div className="App">
-      <h1>MindBooster</h1>
-      <ReportForm runSetReports={runSetReports}/>
-      {reports.length ? 
-        <>
-          <ReportsActions isDisabled={!isDisabled()} selectAll={selectAll} deleteSelected={deleteSelected} reports={reports}/>
-          <ReportList selectReport={selectReport} reports={reports} setReports={setReports} runSetReports={runSetReports}/>
-        </>
-      : <h2>List is empty.</h2>}
+      <Switch checked={switcher} onChange={(event)=>{setSwitcher(event.target.checked); localStorage.setItem('SWITCH_DATA', JSON.stringify(event.target.checked))}}/>
       {
-        selectedReportsCounter>0 && 
-        <div style={{position: 'fixed', right: 10, top: 10, color: 'rgb(17,40,65)', backgroundColor: 'white', padding: 5, border: '3px solid rgb(17,40,65)', borderRadius: 15}}>
-          <p style={{margin: 0}}>{`Selected items: ${selectedReportsCounter}`}</p>
-        </div>
+        !switcher ? 
+        (
+          <>
+        <h1>MindBooster</h1>
+        <ReportForm runSetReports={runSetReports}/>
+        {reports.length ? 
+          <>
+            <ReportsActions isDisabled={!isDisabled()} selectAll={selectAll} deleteSelected={deleteSelected} reports={reports}/>
+            <ReportList selectReport={selectReport} reports={reports} setReports={setReports} runSetReports={runSetReports}/>
+          </>
+        : <h2>List is empty.</h2>}
+        {
+          selectedReportsCounter>0 && 
+          <div style={{position: 'fixed', right: 10, top: 10, color: 'rgb(17,40,65)', backgroundColor: 'white', padding: 5, border: '3px solid rgb(17,40,65)', borderRadius: 15}}>
+            <p style={{margin: 0}}>{`Selected items: ${selectedReportsCounter}`}</p>
+          </div>
+        }
+          </>
+        ) 
+        : (<DayCounterApp />)
       }
+
+      
     </div>
   );
 }

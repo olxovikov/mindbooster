@@ -1,0 +1,46 @@
+.dailyk {
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+    gap: 5px;
+    margin-bottom: 15px;
+    padding: 10px 25px 10px 25px;
+    background-color: white;
+    border-radius: 10px;
+    width: 40%;
+    text-align: start;
+}
+
+.dailykButtons {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-evenly;
+    border-left: 5px solid rgb(17,40,65);
+    
+}
+
+.dailykButtons button {
+    background-color: initial;
+    border: none;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+}
+
+.dailykButtons img {
+    height: 25px;
+    filter: invert(11%) sepia(47%) saturate(1375%) hue-rotate(180deg) brightness(94%) contrast(92%);
+}
+
+@media (max-width: 719px) {
+    .dailyk {
+        width: 80%;
+        font-size: 25px;
+    }
+}
